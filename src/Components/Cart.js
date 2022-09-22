@@ -47,7 +47,7 @@ function Cart() {
                       <img src={item.image} width={"200px"} height={"260px"} alt={item.title}/>
                     </td>
                     <td>{item.qty}</td>
-                    <td>{item.qty * item.price}</td>
+                    <td>{(item.qty * item.price).toFixed(2)}</td>
                     <td>
                       {
                         soldOutProducts.includes(item.id) ? "" : <><Button onClick={() => dispatch(increamentQuantity(item.id))} style={{marginRight: "1rem"}}>+</Button>
@@ -71,7 +71,7 @@ function Cart() {
             <tr>
               <td colSpan="3">Total</td>
               <td>{cartData.totalQty}</td>
-              <td colSpan="3">{Math.ceil(cartData.totalAmt)}</td>
+              <td colSpan="3">{Math.ceil(cartData.totalAmt)} RS</td>
             </tr>
           </tfoot>
         </table>
